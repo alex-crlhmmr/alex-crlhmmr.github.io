@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexandre Carlhammar</title>
+<meta name="description" content="Systems engineer. Space, autonomy, defense. Stanford MS Aero/Astro.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0c0c0c;
+    --fg: #d4d4d4;
+    --fg-dim: #737373;
+    --fg-bright: #f5f5f5;
+    --accent: #c9a84c;
+    --accent-dim: #8a7233;
+    --result-color: #8ab4a0;
+    --rule: #262626;
+    --max-w: 72ch;
+  }
+
+  html {
+    font-size: 15px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    padding: 3rem 1.5rem 6rem;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-dim);
+    transition: border-color 0.15s;
+  }
+  a:hover {
+    border-color: var(--accent);
+  }
+
+  /* ── Header ── */
+  header {
+    margin-bottom: 3rem;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .headshot {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+    filter: grayscale(30%);
+  }
+
+  .header-text {
+    flex: 1;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fg-bright);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.35rem;
+  }
+
+  .tagline {
+    color: var(--fg-dim);
+    font-size: 0.85rem;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+
+  .about {
+    font-size: 0.8rem;
+    color: var(--fg);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .contact {
+    font-size: 0.8rem;
+    color: var(--fg-dim);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+  }
+
+  .contact a {
+    color: var(--fg-dim);
+    border-bottom-color: var(--rule);
+  }
+  .contact a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .cv-link {
+    color: var(--accent) !important;
+    border-bottom-color: var(--accent-dim) !important;
+    font-weight: 500;
+  }
+  .cv-link:hover {
+    border-bottom-color: var(--accent) !important;
+  }
+
+  /* ── Sections ── */
+  section {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── Project entries ── */
+  .project {
+    margin-bottom: 2.25rem;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .project-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--fg-bright);
+  }
+
+  .project-meta {
+    font-size: 0.75rem;
+    color: var(--fg-dim);
+    font-weight: 300;
+    white-space: nowrap;
+  }
+
+  .project-org {
+    font-size: 0.8rem;
+    color: var(--fg-dim);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-body {
+    font-size: 0.8rem;
+    color: var(--fg);
+    line-height: 1.7;
+  }
+
+  .project-body p {
+    margin-bottom: 0.3rem;
+  }
+
+  .label {
+    color: var(--fg-dim);
+    font-weight: 500;
+  }
+
+  .result {
+    color: var(--result-color);
+    font-weight: 500;
+  }
+
+  /* ── Compact lists ── */
+  .edu-entry {
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .edu-entry .school {
+    font-weight: 600;
+    color: var(--fg-bright);
+  }
+
+  .edu-entry .degree {
+    color: var(--fg);
+  }
+
+  .edu-entry .dates {
+    color: var(--fg-dim);
+    font-size: 0.75rem;
+  }
+
+  .skills-list {
+    font-size: 0.8rem;
+    color: var(--fg);
+    line-height: 1.8;
+  }
+
+  .skills-list .cat {
+    color: var(--fg-dim);
+    font-weight: 500;
+  }
+
+  .other-list {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: var(--fg);
+  }
+
+  .other-item {
+    margin-bottom: 0.15rem;
+  }
+
+  .other-item .highlight {
+    color: var(--fg-bright);
+    font-weight: 500;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.7rem;
+    color: var(--fg-dim);
+    font-weight: 300;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 520px) {
+    html { font-size: 14px; }
+    body { padding: 2rem 1.25rem 4rem; }
+    .project-header { flex-direction: column; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <img src="face_pic.jpg" alt="Alexandre Carlhammar" class="headshot">
+    <div class="header-text">
+      <h1>Alexandre Carlhammar</h1>
+      <p class="tagline">I build systems for space, autonomy, and defense.</p>
+    </div>
+  </div>
+  <p class="about">Hands-on aerospace engineering to frontier AI research. I've led end-to-end development of autonomous aerial systems, built full-stack GNC for GNSS-denied flight, and shipped distributed satellite software to orbit. I work at the intersection of theory and real-world execution&mdash;rapid prototyping, flight testing, hardware-in-the-loop, translating research into operational systems. French, Spanish, Swedish background. Built teams across Europe and the U.S.</p>
+  <div class="contact">
+    <span><a href="mailto:acarlham@stanford.edu">acarlham@stanford.edu</a></span>
+    <span><a href="https://www.linkedin.com/in/alexandre-carlhammar">linkedin</a></span>
+    <span><a class="cv-link" href="CARLHAMMAR_Alexandre_CV_012026.pdf">cv [pdf]</a></span>
+  </div>
+</header>
+
+<section>
+  <h2>Work</h2>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-title">Reconfigurable Manufacturing</span>
+      <span class="project-meta">2026 &ndash; present</span>
+    </div>
+    <div class="project-org">Stanford Robotics Center</div>
+    <div class="project-body">
+      <p>Leading research on Rapidly Reconfigurable Manufacturing Cells for low-volume production.</p>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-title">High-Performance UAS</span>
+      <span class="project-meta">07/2025 &ndash; 12/2025</span>
+    </div>
+    <div class="project-org">Stealth Aerospace Startup, Hawthorne</div>
+    <div class="project-body">
+      <p>Founding engineer. End-to-end: concept through flight test. Ballistic launch, 300+ km/h sustained flight.</p>
+      <p><span class="label">Built:</span> Full-stack GNC for GNSS-denied autonomous flight and precision engagement. Multi-sensor fusion (IMU, baro, RGB/IR cameras). RL-based control modules. Airframe, wing structures, propulsion validation via CFD and bench testing.</p>
+      <p><span class="result">Weekly flight campaigns in Mojave. Recruited and led the founding engineering team. Early-stage fundraising.</span></p>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-title">Hypersonic Detection Systems</span>
+      <span class="project-meta">06/2025 &ndash; 08/2025</span>
+    </div>
+    <div class="project-org">Defense Innovation Unit / Hoover Institution</div>
+    <div class="project-body">
+      <p>Entered with zero defense background. Conducted 100+ interviews across government, industry, and research to isolate actual technical constraints. Iterated via prototypes used as probes&mdash;presenting rough systems to experts to find what was wrong, missing, or unrealistic.</p>
+      <p><span class="result">$80K award from Defense Innovation Unit.</span></p>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-title">Foundational Spacecraft Operation Models</span>
+      <span class="project-meta">04/2025 &ndash; 12/2025</span>
+    </div>
+    <div class="project-org">Stanford Space Rendezvous Lab (SLAB)</div>
+    <div class="project-body">
+      <p>AI models that internalize orbital physics and multi-satellite coordination for autonomous operations. Hyper-realistic simulations, open-source propagators, VAEs for physically consistent scenario generation.</p>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-title">Lunar Rover Path Planning</span>
+      <span class="project-meta">09/2024 &ndash; 04/2025</span>
+    </div>
+    <div class="project-org">Stanford NAV Lab + Blue Origin</div>
+    <div class="project-body">
+      <p>Path planning for rover at lunar south pole (Blue Origin mission, 2026). Sun-synchronous traverses via SLAM. NeRF and 3D Gaussian Splats trained on lunar DEMs and orbit imagery. Real-time planning in hardware-in-the-loop simulation.</p>
+      <p><span class="result">Won NASA's Lunar Autonomy Challenge.</span></p>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-title">Multi-Agent AI Systems</span>
+      <span class="project-meta">06/2024 &ndash; 09/2024</span>
+    </div>
+    <div class="project-org">IBM, Z&uuml;rich</div>
+    <div class="project-body">
+      <p>Large-scale multi-agent architectures for pharmaceutical automation. Advanced RAG with semantic chunking, query rewriting, multi-agent orchestration. Led 10 engineers across Europe.</p>
+      <p><span class="result">Deployed to Pfizer production.</span></p>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-title">Satellite Virtualization Layer</span>
+      <span class="project-meta">06/2023 &ndash; 02/2025</span>
+    </div>
+    <div class="project-org">Bruhnspace Innovation, Uppsala</div>
+    <div class="project-body">
+      <p><span class="label">Problem:</span> Deploying software to satellites required custom integration per mission. No standard runtime, no shared storage, no portability.</p>
+      <p><span class="label">Built:</span> OS-level abstraction for satellites&mdash;containerized app deployment across constellations, S3-compatible distributed storage, data relay through intermediary satellites, sensor virtualization. Essentially Kubernetes for space.</p>
+      <p><span class="result">Deployed on ISS (Nov 2024). Upcoming NASA mission (Oct 2025). Grants from Swedish Space Agency and NASA.</span></p>
+    </div>
+  </div>
+
+  <div class="project">
+    <div class="project-header">
+      <span class="project-title">Constellation Scheduling via Deep RL</span>
+      <span class="project-meta">2024</span>
+    </div>
+    <div class="project-org">Independent research, with Airbus Defense &amp; Space</div>
+    <div class="project-body">
+      <p><span class="label">Problem:</span> Multi-satellite mission scheduling is NP-hard. Traditional solvers take weeks per iteration.</p>
+      <p>Self-taught deep RL over winter break. Convinced Airbus to share their high-fidelity orbital simulator. Trained approximate policies that generate feasible distributions in seconds.</p>
+      <p><span class="result">Cut planning time from weeks to hours. Led first undergraduate workshop at AMLD 2024 (50+ attendees).</span></p>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="edu-entry">
+    <span class="school">Stanford University</span> &mdash; <span class="degree">M.S. Aeronautics &amp; Astronautics</span><br>
+    <span class="dates">2024 &ndash; 2026 &ensp;|&ensp; Orbital Mechanics, Distributed Space Systems, GPS, Optimal Control, Robot Autonomy, Deep RL, Decision Making Under Uncertainty, Computer Vision</span>
+  </div>
+  <div class="edu-entry">
+    <span class="school">EPFL</span> &mdash; <span class="degree">B.S. Mechanical Engineering, top 5%, GPA 5.7/6</span><br>
+    <span class="dates">2021 &ndash; 2024 &ensp;|&ensp; Controls, Dynamics, Spaceflight, Turbomachinery, ML, Embedded AI, Electronics</span>
+  </div>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <div class="skills-list">
+    <span class="cat">Languages:</span> C, C++, Python, MATLAB, Go, LabVIEW<br>
+    <span class="cat">GNC:</span> LQR, PID, Kalman Filtering, Dynamics Modeling, Signal Processing, ROS<br>
+    <span class="cat">Infra:</span> Docker, Kubernetes, GitLab CI/CD, Jenkins<br>
+    <span class="cat">CAD/Sim:</span> SolidWorks, CATIA, Abaqus CAE<br>
+    <span class="cat">Human:</span> English, French, Spanish, Swedish
+  </div>
+</section>
+
+<section>
+  <h2>Other</h2>
+  <div class="other-list">
+    <div class="other-item"><span class="highlight">EPFL AI Team</span> &mdash; Founded Switzerland's 1st student AI association. 500 members. $25k+ raised from Google, Maxon, others. Awarded MAKE Grant (10 of 125 associations).</div>
+    <div class="other-item"><span class="highlight">Stanford Space Initiative</span> &mdash; ADCS team. 6DOF CubeSat simulation, firmware for RP2040 MCU, onboard EKF for attitude estimation.</div>
+    <div class="other-item"><span class="highlight">European Rocketry Challenge</span> &mdash; Designed Switzerland's first student bi-liquid tank. N2O/ethanol, 80 bar. Two coaxial tanks in five months.</div>
+    <div class="other-item"><span class="highlight">Teaching</span> &mdash; TA for CS, Algorithms, Linear Algebra at EPFL. 75&ndash;100 students per section. Rated 5.75/6.</div>
+    <div class="other-item"><span class="highlight">Publication</span> &mdash; "Deep reinforcement learning for satellite constellation and trajectory planning," 1st author, AMLD 2024.</div>
+  </div>
+</section>
+
+<footer>
+  Last updated January 2026.
+</footer>
+
+</body>
+</html>
