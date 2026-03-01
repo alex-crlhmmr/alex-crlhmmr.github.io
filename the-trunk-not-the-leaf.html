@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
+<title>Writing &mdash; Alexandre Carlhammar</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230c0c0c'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>AC</text></svg>">
+<meta name="description" content="Writing by Alexandre Carlhammar. Essays on manufacturing, reindustrialization, and building systems.">
+<meta name="author" content="Alexandre Carlhammar">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0c0c0c;
+    --fg: #d4d4d4;
+    --fg-dim: #737373;
+    --fg-bright: #f5f5f5;
+    --accent: #c9a84c;
+    --accent-dim: #8a7233;
+    --rule: #262626;
+    --max-w: 72ch;
+  }
+
+  html {
+    font-size: 15px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.65;
+    padding: 3rem 1.5rem 6rem;
+    max-width: var(--max-w);
+    margin: 0 auto;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-dim);
+    transition: border-color 0.15s;
+  }
+  a:hover {
+    border-color: var(--accent);
+  }
+
+  /* ── Nav ── */
+  nav {
+    margin-bottom: 3rem;
+    font-size: 0.8rem;
+  }
+
+  nav a {
+    color: var(--fg-dim);
+    border-bottom-color: var(--rule);
+  }
+  nav a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ── Essay ── */
+  .essay-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .essay-header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--fg-bright);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .essay-header .subtitle {
+    font-size: 0.85rem;
+    color: var(--fg-dim);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .essay-header .meta {
+    font-size: 0.75rem;
+    color: var(--fg-dim);
+    font-weight: 300;
+  }
+
+  .essay-body h2 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--fg-bright);
+    text-transform: none;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .essay-body p {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.7rem;
+    color: var(--fg-dim);
+    font-weight: 300;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 520px) {
+    html { font-size: 14px; }
+    body { padding: 2rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/">&larr; Alexandre Carlhammar</a>
+</nav>
+
+<article>
+  <div class="essay-header">
+    <h1>The Trunk, Not The Leaf</h1>
+    <p class="subtitle">Why the West cannot reindustrialize without putting manufacturing first</p>
+    <p class="meta">March 2026 &ensp;|&ensp; <a href="TheTrunkNotTheLeaf.pdf">pdf</a></p>
+  </div>
+
+  <div class="essay-body">
+    <h2>The Bottleneck</h2>
+
+    <p>The West needs to rebuild its industrial base. The data is unambiguous. The United States holds 10% of global chip fabrication capacity, down from 37% in 1990. NATO produced in a year what Russia produced in three months of 2024. China processes over 90% of the world&rsquo;s rare earth elements. Europe&rsquo;s defense orders doubled in 2025 while industrial output barely moved.</p>
+
+    <p>Capital is flowing. Political will exists. Everyone agrees the West must build again. And yet the bottleneck persists.</p>
+
+    <p>The conversation focuses on what to build and where. Almost nobody is asking the prior question: how does the West architect the act of building itself?</p>
+
+    <p>Manufacturing is treated as a leaf on the tree, something you figure out after the design is done. I believe it must become the trunk.</p>
+
+    <h2>The Prototype Trap</h2>
+
+    <p>Vibe coding lets someone ship a functional application in hours. Accessible CAD, off-the-shelf components, and additive manufacturing did the same for hardware. The cost of prototyping collapsed. This is rightfully celebrated.</p>
+
+    <p>But a prototype that works once is a fundamentally different object from a product that works ten thousand times under variance. The transition is not linear. It is a phase change. And every design decision made during fast prototyping: materials, geometries, joining methods, tolerances, becomes technical debt that compounds violently at scale.</p>
+
+    <p>The pattern repeats everywhere. Brilliant prototype. Funding. Then: how do we make ten thousand? Discovery that most of the design must be reworked. Twelve to twenty-four months of redesign. For most hardware companies, death.</p>
+
+    <p>As prototyping gets cheaper, more products enter the pipeline that were never designed for production. The funnel widens at the top. The bottleneck at the bottom stays the same size.</p>
+
+    <h2>Manufacturing Drives Design</h2>
+
+    <p>The truth that separates companies that scale from companies that demo: manufacturing drives design.</p>
+
+    <p>Tesla designed a manufacturing system and expressed a car through it. SpaceX designed a production architecture for rockets: Starship&rsquo;s stainless steel was chosen because steel is weldable at speeds composites cannot match in production. The vehicle is an expression of what the manufacturing system can do. TSMC does not sell chips. It sells a manufacturing platform. Designers work within its production envelope.</p>
+
+    <p>In each case, manufacturing is the primary intellectual asset. Product geometry follows from production capability.</p>
+
+    <p>That paradigm is why the West can design advanced weapons but cannot produce enough ammunition. Why it can design cutting-edge chips but cannot fabricate them domestically. The designs were never the bottleneck. Manufacturing always was.</p>
+
+    <h2>The Ant Colony</h2>
+
+    <p>The West is investing heavily in smarter individual machines; better AI robots, CNC systems, AI-driven inspection, etc. Each impressive in isolation. But manufacturing is not a collection of capable machines. It is the orchestrated behavior of many machines working as a system.</p>
+
+    <p>An ant can carry fifty times its body weight. What makes a colony functional is not the capability of individual ants. It is the integration &ndash; the shared protocols that turn millions of simple actions into complex outcomes. There is no point in having brilliant ants without a colony.</p>
+
+    <p>The West does not lack machines. It lacks the knowledge of how to compose machines into production architectures that work reliably at rate. Germany doubled defense orders but output barely moved &ndash; the machines exist, the system integration does not. TSMC brought workers from Taiwan to Arizona because production system knowledge does not transfer through manuals. U.S. ammunition plants run 1920s processes not because modern machines do not exist, but because no one has integrated a modern production system for energetics.</p>
+
+    <p>That integration knowledge lives in the heads of senior engineers aging out of the workforce. Two to three million manufacturing jobs unfilled by 2030 in the U.S. alone. When those people retire, the colony&rsquo;s pheromone system goes with them.</p>
+
+    <h2>The Necessary Tension</h2>
+
+    <p>Prototyping demands speed, improvisation, and the courage to break things fast. Manufacturing demands repeatability, discipline, and zero tolerance for variance. Different value systems. Most organizations discover the collision violently during scale-up.</p>
+
+    <p>Manufacturing-first does not eliminate this tension. It structures it. Prototyping runs fast, but inside a manufacturing-aware envelope. Key producibility decisions are locked early as constraints. Creative freedom is real but bounded. The transition from prototype to production becomes a designed handoff, not a traumatic collision.</p>
+
+    <h2>What Must Be Built</h2>
+
+    <p>Today, CAD models geometry, simulation models physics, MES models production: different software, different teams, different project phases. These must converge so that changing a product feature immediately surfaces its manufacturing implications: cycle time, tooling, yield, cost. Product and production system designed in the same space, simultaneously.</p>
+
+    <p>Every production line is a semi-custom integration project. Manufacturing needs its cloud equivalent: standardized, parameterizable modules composable into different configurations.</p>
+
+    <p>And the knowledge that makes factories produce output, how machines interact, how parameters affect yield, how layout drives throughput, must become computational. The retiring workforce is taking it with them. Capturing it is existential.</p>
+
+    <p>The underlying technologies exist. What does not exist is their composition into systems designed around the principle that manufacturing is the trunk.</p>
+
+    <h2>The Stakes</h2>
+
+    <p>The West is simultaneously trying to rebuild semiconductor sovereignty, rearm for great-power competition, deploy clean energy at terawatt scale, and diversify critical mineral supply chains. Each is a manufacturing problem first. All four compete for the same scarce workers, minerals, infrastructure, and policy bandwidth.</p>
+
+    <p>The West has the capital. It has the political will. It increasingly has the machines.</p>
+
+    <p>What it lacks is the architecture. The trunk. That is what must be built.</p>
+  </div>
+</article>
+
+<footer>
+  <a href="/">&larr; back</a>
+</footer>
+
+</body>
+</html>
